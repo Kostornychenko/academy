@@ -1,0 +1,20 @@
+.paragraph {
+    font-family: "American Typewriter";
+    font-size: 20px;
+    font-weight: 700;
+    color: grey;
+    text-decoration: underline;
+}
+.paragraph2 {
+    font-family: "American Typewriter";
+    font-size: 20px;
+    font-weight: 700;
+    color: red;
+    text-decoration: underline;
+}
+.paragraph span {
+    color: blue;
+}
+.paragraph span a {
+    color: green;
+}

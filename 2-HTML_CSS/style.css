@@ -1,0 +1,51 @@
+body {
+    background: #000;
+    text-decoration: none;
+}
+
+/*.green {
+    background: green;
+    color: red;
+}*/
+
+/*
+#yellow {
+    background: blue;
+    color: yellow;
+}*/
+.menu {
+    background: yellow;
+    float: right;
+    width: 100%;
+}
+.menu a,
+.menu div {
+    float: left;
+    clear: both;
+    background: #fff;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    text-decoration: none;
+    color: #333333;
+    font-family: "Arial Black", sans-serif;
+}
+.menu a:hover {
+    background: blue;
+}
+
+
+.menu a.active {
+    background: green;
+}
+
+.new {
+    font-style: italic;
+}
+
+.block {
+    background: #fff;
+    width: 200px;
+    text-align: center;
+    font-size: 30px;
+    /*margin: 50px auto;*/
+}
