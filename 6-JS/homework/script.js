@@ -12,8 +12,8 @@ for (var i = 0; i < text.length; i++) {
 }
 new_str = text.join(" ");
 
-function compare (a, b) {
-    return b.length - a.length;
+function compare (b, a) {
+    return a.length - b.length;
 }
 console.log(str);
 console.log("======")
