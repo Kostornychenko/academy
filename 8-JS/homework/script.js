@@ -2,9 +2,12 @@ var header = "{margin:25px;height:900px;width:100%}";
 var main = "{padding:0 0 10px;margin:25px;width:100%}";
 var wrap = "{margin:0 auto;width:960px}";
 var footer = "{float:left;padding:0 0 10px;background:#eeaaa3}";
+
 /**/
+
 var result = [];
 var str = [header, main, wrap, footer];
+
 for (var i = 0; i < str.length; i++) {
     result[i] = {};
     str[i] = str[i].slice(1,-1).split(";");
@@ -32,4 +35,5 @@ for (i = 0; i < result.length; i++) {
         }
     }
 }
+console.log(tmp);
 console.log(same);
