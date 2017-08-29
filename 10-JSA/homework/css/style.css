@@ -1,0 +1,7 @@
+body {
+    width: 900px;
+    margin: 40px auto;
+}
+input[type="checkbox"] {
+    margin-bottom: 20px;
+}

@@ -520,15 +520,15 @@
             };
 
             function db() {
-                return this.age * 2;
+                return age * 2;
             }
         }
 
         var John = new Person("John", 32);
 
-        John.show_db();*/
-
-        //console.log(John.message);
+        John.show_db();
+        console.log(John);
+        console.log(John.message);*/
 
         //*3
         /*function Person(name, minage) {
@@ -536,7 +536,7 @@
             var norm_age = 0;
             this.setAge = function(age){
                 if (age < minage) {
-                    console.log("none");
+                    norm_age = age + 10;
                 } else {
                     norm_age = age;
                 }
@@ -553,8 +553,10 @@
         }
         var minage = 18;
         var John = new Person("John", minage);
-        John.setAge(44);
-        John.show();*/
+        console.log(John);
+        John.setAge(16);
+        John.show();
+        console.log(John.getAge());*/
     </script>
     <script>
         //*1
@@ -568,6 +570,10 @@
             this.hide = function() {
                 status = false;
             };
+
+            this.getStatus = function () {
+                return status;
+            }
         }
 
         function Menu() {
@@ -581,45 +587,59 @@
         }
 
         var headerMenu = new Menu();
+
         headerMenu.setElements(10);
+        //console.log(headerMenu.elementsCount);
+
         headerMenu.show();
+        console.log(headerMenu.getStatus());
 
         console.log(headerMenu);
-        console.log(headerMenu.status); //Наследник не имеет доступа к приватным свойствам родителя.*/
+        console.log(headerMenu.status);*/ //Наследник не имеет доступа к приватным свойствам родителя.*/
 
         //*2
         // Защищённые свойства
          /*function Component() {
-         this._status = false;
+             this._status = false;
 
-         this.show = function() {
-         this._status = true;
-         };
+             this.show = function() {
+                this._status = true;
+             };
 
-         this.hide = function() {
-         this._status = false;
-         };
+             this.hide = function() {
+                this._status = false;
+             };
          }
 
          function Menu() {
-         Component.call(this);
+            Component.call(this);
 
-         var elementsCount = 0;
+            var elementsCount = 0;
 
-         this.setElements = function(cnt) {
-         elementsCount = cnt;
+            this.setElements = function(cnt) {
+            elementsCount = cnt;
+            }
          }
+
+
+         function Submenu() {
+             Menu.call(this);
          }
+
+
 
          var headerMenu = new Menu();
          headerMenu.setElements(10);
          headerMenu.show();
 
          console.log(headerMenu);
-         console.log(headerMenu._status);*/
+         console.log(headerMenu._status);
+
+         var sub = new Submenu();
+         console.log(sub);*/
 
          //*3
-       /* function Component(float) {
+        /*function Component(float) {
             this._status = false;
             this._float = float;
 
@@ -640,7 +660,7 @@
             };
 
             /!*this.show = function() {
-             this._status = true;
+                this._status = true;
              }*!/
 
             var originShow = this.show;
@@ -651,10 +671,12 @@
         }
 
         var myMenu = new Menu("right");
-        myMenu.show();*/
+        console.log(myMenu);
+        myMenu.show();
+        console.log(myMenu._status);*/
 
        //*4
-      /*  function Component(float) {
+        /*function Component(float) {
             this._status = false;
             this._float = float;
 
@@ -685,11 +707,75 @@
                 originShow();
                 this.build();
             }
+
+            /!*var originShow = this.show;
+            this.show = function() {
+                originShow.call(this);
+                this.build();
+            }*!/
         }
 
         var myMenu = new Menu("right");
+        console.log(myMenu);
         myMenu.show();*/
+    </script>
+    <script>
+        /*var obj = {
+         name: "Jonh",
+         age: 25
+         };
 
+         var person = {
+         hands:true
+         };
+
+         var main = {
+         status: "none"
+         };
+
+         person.__proto__ = main;
+
+         obj.__proto__ = person;
+         //obj.hands = false;
+
+         console.log(obj);
+
+         for (var key in obj) {
+         console.log(key)
+         }
+
+         console.log(obj.hasOwnProperty('name'));
+
+         var same = Object.create(null);
+         same.height = 120;
+
+         console.log(same);
+         */
+
+        //console.log(obj.hands);
+
+        var main = {
+            status: "none"
+        };
+        var person = {
+            hands:true
+        };
+        function John(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        John.prototype = main;
+
+        var obj = new John("John", 20);
+
+        obj.__proto__ = person;
+
+        console.log(obj);
+
+        /*var arr = new Array();
+        new Object()
+        new Date()*/
 
     </script>
 </head>
