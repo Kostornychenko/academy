@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homework 11</title>
+</head>
+<body>
+    <script>
+        function Components() {   //Класс-родитель
+            this._stat = "active";
+
+            this.active = function () {
+                this._stat = "active";
+            };
+
+            this.disabled = function () {
+                this._stat = "disabled";
+            }
+        }
+
+
+        function Form() {
+            Components.apply(this, arguments); //Наследуем класс-родитель
+
+            this.send = function () {          //Send возможен лишь при состоянии active
+                if (this._stat === "active") {
+                    console.log("...send some info...");
+                } else {
+                    console.log("Form is disabled. You need turn it on.");
+                }
+            };
+
+            this.validate = function () {   //Валидация возможна лишь при состоянии active
+                if (this._stat === "active") {
+                    console.log("...make some validate method...");
+                } else {
+                    console.log("Form is disabled. You need turn it on.");
+                }
+            };
+
+            var origin = this.active;
+            this.active = function () {     //Переназначаем метод active
+                origin.call(this);
+                this.validate();
+            };
+
+            Object.defineProperty(this, "showStat", { //Сеттер/геттер для статуса
+                get: function () {
+                    console.log(this._stat);
+                },
+                set: function (value) {
+                    if (value === "active" || value === "disable") {
+                        this._stat = value;
+                    } else {
+                        console.log(this._stat);
+                        console.log("Можно вводить лишь два значения active или disable")
+                    }
+                }
+            });
+
+            /*this.showStat = function (value) {
+                if (value === "active" || value === "disable") {
+                    this._stat = value;
+
+                } else {
+                    console.log(this._stat);
+                }
+            }*/
+        }
+
+       /* var main = new Components();
+        console.log(main);
+
+*/      /*  var obj = new Form();
+        console.log(obj);
+
+        obj.showStat("active");
+        console.log(obj);*/
+
+
+        var tmp;
+        var x = new Form(); //Тест
+        tmp = x.showStat;
+        x.disabled();
+        tmp = x.showStat;
+        x.validate();
+        x.showStat = 123;
+        x.showStat = "active";
+        tmp = x.showStat;
+        x.send();
+        x.disabled();
+        tmp = x.showStat;
+    </script>
+</body>
+</html>
