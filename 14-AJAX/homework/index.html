@@ -43,9 +43,9 @@
         var isAdmin = document.getElementById("isAdmin");
         var params;
         if (isAdmin.checked) {
-            params = "name=" + username.value + "&role=admin";
+            params = '{"name":"' + username.value + '","role":"admin"}';
         } else {
-            params = "name=" + username.value;
+            params = '{"name":"' + username.value + '"}';
         }
         var Handler = function(Request) {
             var ul = document.createElement("ul");

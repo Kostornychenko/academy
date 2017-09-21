@@ -27,10 +27,18 @@ for (var prop in resultObj) {
 }
 
 console.log(arrayTags);
+var arr = [];
 
-arrayTags.sort(function sort(a, b) {
-    return b.count - a.count;
-});
+for (var i = 0; i < arrayTags.length; i++ ) {
+    arr[i] = arrayTags[i];
+}
+    arr.sort(function sort(a, b) {
+        return b.count - a.count;
+    });
+
+console.log(arr);
+
+
 
 createPopup(arrayTags);
 
@@ -62,7 +70,7 @@ function createPopup(arrayTags) {
     }
 }
 var buttons = document.getElementsByClassName("del");
-console.log(buttons);
+//console.log(buttons);
 for(var i = 0; i < buttons.length; i++){
     buttons[i].addEventListener("click", remove);
 }
@@ -71,7 +79,7 @@ function remove() {
     var name = this.parentElement.firstElementChild.innerHTML;
 
     var tags = wrap.getElementsByTagName(name);
-    console.log(tags);
+    //console.log(tags);
     for(var i = 0; i < tags.length; i++){
         tags[i].remove();
         i--;

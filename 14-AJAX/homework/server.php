@@ -1,14 +1,14 @@
 <?php
-
-    //echo "Hello from server.php by Ajax";
+    error_reporting(E_ALL & ~E_NOTICE);
 
     $users = array("John" => "user", "Alex" => "admin", "David" => "user", "Jeremy" => "admin");
 
+    $data = file_get_contents('php://input');
+    $data = json_decode($data, true);
 
-    if ($_POST["name"] || $_POST["role"]) {
-        $name = $_POST["name"];
-        $role = $_POST["role"];
-
+    if ($data["name"] || $data["role"]) {
+        $name = $data["name"];
+        $role = $data["role"];
         setUserView($name, $role);
     }
 
