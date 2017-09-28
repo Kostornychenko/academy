@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cmp {
+            width: 500px;
+            height: 200px;
+            background: #777;
+            float: left;
+            /*display: none;*/
+        }
+        #wrap {
+            float: left;
+            clear: both;
+        }
+    </style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           //var el = $("body").find("li:even").addClass("cls_fr_find");
+
+            //var el = $(".menu li.item").nextAll("div");
+
+            //var el = $("#component span.item").parent("li");
+
+            //var el = $("#component").children(".item");
+
+            //var el = $("#component .item").siblings();
+
+            //var el = $("ul.menu").add("ul.second").css("background", "green");
+
+           /* $(".menu").append("<div>append</div>");
+            $(".menu").prepend("<div>prepend</div>");
+
+            $("<div class='new'></div>").appendTo("body");
+            $("<div class='new1'></div>").prependTo("body");*/
+
+            //$("#wrap").after("<div class='after'></div>");
+            //$("#wrap").before("<div class='before'></div>");
+
+           /* $("<div class='after'></div>").insertAfter("#wrap");
+            $("<div class='before'></div>").insertBefore("#wrap");*/
+
+            //$(".item").wrapAll("<p></p>");
+
+            //$("<p>new</p>").replaceAll(".item");
+
+            //$("#component").remove();
+            //$("#component").empty();
+
+            //console.log(el);
+
+            //$(".cmp").slideToggle(1000);
+
+            //$(".cmp").fadeOut(3000);
+            //$(".cmp").animate({"background-color": "#ff0000", "height": "100px"}, 5000);
+
+           /* $.ajax({
+             url: "ajax.html",
+             type: "GET",
+             dataType: "html",
+             /!*data: "data",*!/
+             success: function (data, status) {
+             $(".preload").remove();
+             $("body").append(data);
+             },
+             beforeSend: function () {
+             $("body").prepend("<img class='preload' src='file.gif'>");
+             },
+             error: function (e) {
+             console.log(e);
+             $("body").append("<div>error</div>");
+             }
+             });*/
+
+           /* $.get("ajax.html", function (data, status) {
+                $(".preload").remove();
+                $("body").append(data);
+            });*/
+
+           /* $.post("ajax.html", function (data, status) {
+                $(".preload").remove();
+                $("body").append(data);
+            });*/
+
+            var a = $.get("ajax.html", function (data, status) {
+                $("body").append(data);
+            }).done(function () {
+                console.log("done");
+            }).fail(function () {
+                console.log("fail");
+            }).always(function () {
+                console.log("always");
+            });
+
+            a.always(function () {
+                alert("fdsfsd");
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+
+    <div class="cmp"></div>
+
+    <div id="wrap">
+        <ul id="component" class="menu">
+            <li class="first"><span>teddsadas</span><a href="">423</a></li>
+            <li class="item"><span>vfdgf</span><a href="">423</a></li>
+            <li><span>321312</span><a href="">23</a></li>
+            <li><span>rewrwe</span><a href="">33</a></li>
+            <li><span>rewrwe</span><a href="">22</a></li>
+            <li>
+                <div class="div">dsadasdas</div>
+                <span class="item">4234</span>
+                <a href="">2</a>
+            </li>
+            <li><span>dgfdg</span><a href="">2</a></li>
+            <li class="item"><span>rwe</span><a href="">3</a></li>
+            <li><span>rew</span><a href="">4</a></li>
+            <li><span>rew</span><a href="">4</a></li>
+        </ul>
+        <ul class="second">
+            <li>32423</li>
+            <li>423</li>
+            <li>423</li>
+            <li>423</li>
+            <li>423</li>
+            <li>423</li>
+            <li>423</li>
+            <li>423</li>
+            <li>423</li>
+        </ul>
+    </div>
+</body>
+</html>
